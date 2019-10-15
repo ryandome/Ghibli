@@ -3,6 +3,7 @@
     float:right;
     overflow:auto;
     display:inline-block;
+    font-size:30px;
 
     
 }
@@ -12,4 +13,28 @@
    
     overflow: auto;
     display:inline-block;
+    font-size:30px;
+}
+
+body
+{
+    width:1000px;
+}
+
+p
+{
+   background-color:cornsilk;
+ margin:10px;
+
+}
+
+body
+{
+    background-color:#80ccff;
+}
+
+h1
+{
+    font-size:40px;
+    padding:10px;
 }

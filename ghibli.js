@@ -9,7 +9,7 @@ var ghibliPromise = d3.json("https://ghibliapi.herokuapp.com/films")
 ghibliPromise.then(
 function(data)
 {
-    setBanner("Select a film");
+    setBanner("Select the films to make the directors disappear");
     console.log("works",data);
 },
 function(err)
@@ -24,15 +24,28 @@ var displayInfo = function(films)
 {
   var box = d3.select("#one").append("div");
     var items = box.selectAll("p").data(films).enter().append("p");
-    items.append("span").text(function(d){
+    items.append("p").text(function(d){
         return(d).title;
-});
-}
+}) .on("click",function(d){
+         clearinfo(d);
+         return displayData(d)
+     });
     
+
+    
+}
+
+      var clearinfo = function()
+ {
+     d3.selectAll("#two *").remove()
+ }
+    
+
 
 ghibliPromise.then(
 function(data)
 {
+    displayData(data);
     displayInfo(data);
     console.log("works",data);
 },
@@ -46,21 +59,17 @@ function(err)
  {
      var boxes = d3.select("#two").append("div");
      var item = boxes.selectAll("p").data(director).enter().append("p")
-     item.append("span").text(function(p){
+     item.append("p").text(function(p){
          return(p).director;
+        
 });
      
- }
+}
  
- ghibliPromise.then(
-function(data)
-{
-    displayData(data);
-    console.log("works",data);
-},
-function(err)
-{
-    console.log("broken",err);
-    
-})   
 
+
+ 
+
+
+    
+ 
