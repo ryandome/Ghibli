@@ -26,12 +26,9 @@ var displayInfo = function(films)
     var items = box.selectAll("p").data(films).enter().append("p");
     items.append("span").text(function(d){
         return(d).title;
-        return(d).description;
 });
-
- 
-    
 }
+    
 
 ghibliPromise.then(
 function(data)
@@ -45,4 +42,25 @@ function(err)
     
 })   
 
+ var displayData = function(director)
+ {
+     var boxes = d3.select("#two").append("div");
+     var item = boxes.selectAll("p").data(director).enter().append("p")
+     item.append("span").text(function(p){
+         return(p).director;
+});
+     
+ }
+ 
+ ghibliPromise.then(
+function(data)
+{
+    displayData(data);
+    console.log("works",data);
+},
+function(err)
+{
+    console.log("broken",err);
+    
+})   
 

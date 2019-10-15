@@ -1,1 +1,15 @@
+#two
+{
+    float:right;
+    overflow:auto;
+    display:inline-block;
 
+    
+}
+
+#one
+{
+   
+    overflow: auto;
+    display:inline-block;
+}
